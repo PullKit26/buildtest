@@ -30,13 +30,13 @@ phases:
       - echo install
       - echo Build completed on `date`
       - tree
-  artifacts: 
-    secondary-artifacts: 
-      artifact1: 
-        files: 
-          - target/gs-maven-0.1.0.jar
-        name: artifact-1
-      artifact2: 
-        files: 
-          - target/original-gs-maven-0.1.0.jar
-        name: artifact-2
+artifacts: 
+  secondary-artifacts: 
+    artifact1: 
+      files: 
+        - target/gs-maven-0.1.0.jar
+      name: artifact-1
+    artifact2: 
+      files: 
+        - target/original-gs-maven-0.1.0.jar
+      name: artifact-2
