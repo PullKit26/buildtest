@@ -28,14 +28,4 @@ phases:
     commands:
       - echo install
       - echo Build completed on `date`
-artifacts:
-  secondary-artifacts:
-    artifact1:
-      files:
-        - target/gs-maven-0.1.0.jar
-      discard-paths: yes
-    artifact2:
-      files:
-        - target/original-gs-maven-0.1.0.jar
-      discard-paths: yes
 
