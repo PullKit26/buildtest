@@ -35,8 +35,8 @@ phases:
       artifact1: 
         files: 
           - target/gs-maven-0.1.0.jar
-	name: artifact-1
+        name: artifact-1
       artifact2: 
         files: 
           - target/original-gs-maven-0.1.0.jar
-	name: artifact-2
+        name: artifact-2
