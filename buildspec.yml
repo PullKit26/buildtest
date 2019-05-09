@@ -1,0 +1,41 @@
+version: 0.2
+
+env:
+  variables:
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - apt-get update -y
+      - apt-get install -y maven
+    finally:
+      - echo install command fails 
+  pre_build:
+    commands:
+      - echo Entered the pre_build phase...
+      - mvn compile
+    finally:
+      - echo pre build command failed
+  build:
+    commands:
+      - echo Entered the build phase...
+      - echo Build started on `date`
+      - mvn package
+    finally:
+      - echo build command fails
+  post_build:
+    commands:
+      - echo install
+      - echo Build completed on `date`
+artifacts:
+  secondary-artifacts:
+    artifact1:
+      files:
+        - target/gs-maven-0.1.0.jar
+      discard-paths: yes
+    artifact2:
+      files:
+        - target/original-gs-maven-0.1.0.jar
+      discard-paths: yes
+
