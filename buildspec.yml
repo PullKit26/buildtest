@@ -1,8 +1,3 @@
-version: 0.2
-
-env:
-  variables:
-    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
 phases:
   install:
     commands:
@@ -11,32 +6,12 @@ phases:
       - apt-get install -y maven
       - apt-get install -y tree
     finally:
-      - echo install command fails 
-  pre_build:
+      - echo This always runs even if the update or install command fails 
+build:
     commands:
-      - echo Entered the pre_build phase...
+      - echo Build stage
+      - echo Build on `date`
       - mvn compile
-    finally:
-      - echo pre build command failed
-  build:
-    commands:
-      - echo Entered the build phase...
-      - echo Build started on `date`
       - mvn package
-    finally:
-      - echo build command fails
-  post_build:
-    commands:
-      - echo install
-      - echo Build completed on `date`
+      - mvn install
       - tree
-artifacts: 
-  secondary-artifacts: 
-    artifact1: 
-      files: 
-        - target/gs-maven-0.1.0.jar
-      name: artifact-1
-    artifact2: 
-      files: 
-        - target/original-gs-maven-0.1.0.jar
-      name: artifact-2
